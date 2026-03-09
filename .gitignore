@@ -1,0 +1,6 @@
+**/*.o
+**/*.d
+a.out.dSYM
+**/a.out.dSYM
+**/vscode
+**/.vscode
