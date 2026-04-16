@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git mv *)",
+      "Bash(mv ref.c ref_netbsd_getdelim.c)",
+      "Bash(mv ref2.c ref_musl_getdelim.c)",
+      "Bash(mv get_next_line.c gnl_mandatory_stash_strjoin.c)",
+      "Bash(mv get_next_line_utils.c gnl_mandatory_utils.c)",
+      "Bash(mv get_next_line.h gnl_mandatory.h)"
+    ]
+  }
+}
