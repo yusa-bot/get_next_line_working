@@ -6,7 +6,7 @@
 /*   By: ayusa <ayusa@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/10 06:30:37 by ayusa             #+#    #+#             */
-/*   Updated: 2025/05/11 04:19:08 by ayusa            ###   ########.fr       */
+/*   Updated: 2026/04/16 16:40:08 by ayusa            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,12 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+
 	// readで保存先変数が必要なため最初にmalloc(stash)
 	buf = malloc(BUFFER_SIZE + 1);
 	if (!buf)
 		return (NULL);
+
 	 // stashに改行がまだ無いなら
 	while (!has_newline(stash))
 	{
@@ -34,7 +36,9 @@ char	*get_next_line(int fd)
 		buf[bytes_read] = '\0';
 		stash = str_join(stash, buf);
 	}
+	
 	free(buf);
+
 	//stashに改行がある
 	line = extract_line(stash);//改行までにする
 	stash = update_stash(stash);//改行以降をstashに保存
@@ -46,11 +50,10 @@ char	*get_next_line(int fd)
 	char	*buf;
 	int		bytes_read;
 
-	printf("BUFFER_SIZE: %d\n", BUFFER_SIZE);
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+
 	buf = malloc(BUFFER_SIZE + 1);
-	printf("buf: %s\n", buf);
 	if (!buf)
 		return (NULL);
 
@@ -58,8 +61,6 @@ char	*get_next_line(int fd)
 	if (bytes_read <= 0)
 		return (NULL);
 
-	printf("bytes_read: %d\n", bytes_read);
-	printf("buf:\n%s\n", buf);
 	free(buf);
 	return (NULL);
 }
